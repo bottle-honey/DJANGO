@@ -1,0 +1,23 @@
+{% if user.is_autheenticated %}
+hello , {{ user.username }}
+<a href="{%url 'logout' %}">로그아웃</a>
+{% else %}
+login please
+{% endif %}
+<a href="{%url 'login' %}">로그인</a>
+
+<!-- 블로그 목록 -->
+<h1>Blog</h1>
+
+{% for post in posts %}
+    <a href="{% url 'detail' post.id %}"><h3>제목 : {{post.title}}</h3></a>
+    <h4>작성날짜 : {{post.date}}</h4>
+    {% endfor %}
+<a href="{% url 'new' %}">HTML을 이용한 새 글 작성</a></br>
+<a href="{% url 'formcreate' %}">django form을 이용한 새 글 작성</a>
+<a href="{% url 'modelformcreate' %}">django model form을 이용한 새 글 작성</a>
+
+
+{% if user.is_authenticated %}
+<a href="{% url 'modelformcreate' %}">글 작성</a>
+{% endif %}
