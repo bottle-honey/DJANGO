@@ -15,7 +15,7 @@
     {{comment_form}}
     <input type="submit">
 </form>
-% for comment in blog_detail.comment_set.all %
+{% for comment in blog_detail.comment_set.all %}
 <p>{{ comment}}</p>
 <hr>
-{% endfor %}
+{% endfor %} 

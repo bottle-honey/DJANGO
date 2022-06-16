@@ -1,5 +1,5 @@
 <form action="{% url 'login' %}" method='POST'>
-    % csrf_token %
+    {% csrf_token %}
     username : <input type="text" name="username">
     <br/>
     password : <input type="password" name="password">
