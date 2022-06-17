@@ -22,4 +22,5 @@ urlpatterns = [
     path('', snsapp_views.home, name='home'),
     path('postcreate', snsapp_views.postcreate, name='postcreate'),
     path('detail/<int:post_id>', snsapp_views.detail, name='detail'),
+    path('new_comment/<int:post_id>', snsapp_views.new_comment, name='new_comment'),
 ]
