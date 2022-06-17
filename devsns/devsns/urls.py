@@ -19,5 +19,7 @@ from snsapp import views as snsapp_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', snsapp_views.home),
+    path('', snsapp_views.home, name='home'),
+    path('postcreate', snsapp_views.postcreate, name='postcreate'),
+    path('detail/<int:post_id>', snsapp_views.detail, name='detail'),
 ]
