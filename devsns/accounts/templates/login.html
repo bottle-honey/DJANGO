@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +64,8 @@
                                         <hr>
                                         </form>
                                     <div class="text-center">
-                                        <a class='small' href="{% url 'signup' %}">Create an Account</a>
+                                        <a class='small' href="{% url 'signup' %}">Create an Account</a><br/>                                        
+                                        <a class='small' href="{% provider_login_url 'google' %}">Google Login</a>
                                     </div>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from snsapp import views as snsapp_views
 from accounts import views as accounts_views
 
@@ -33,4 +33,5 @@ urlpatterns = [
     path('freepostcreate', snsapp_views.freepostcreate, name='freepostcreate'),
     path('freedetail/<int:post_id>', snsapp_views.freedetail, name='freedetail'),
     path('new_freecomment/<int:post_id>', snsapp_views.new_freecomment, name='new_freecomment'),
+    path('accounts/', include('allauth.urls')),
 ]
