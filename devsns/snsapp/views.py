@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostForm, CommentForm, FreeCommentForm, FreePostForm
 from .models import Post, FreePost
+from django.core.paginator import Paginator
 
 def home(request):
     # posts = Post.objects.all()
     posts = Post.objects.filter().order_by('-date')
+    paginator = Paginator(posts, 2)
+    pagnum  = request.GET.get('page')
+    posts = paginator.get_page(pagnum)
     return render(request, 'index.html', {'posts':posts})
 
 def postcreate(request):
@@ -35,6 +39,9 @@ def new_comment(request, post_id):
 def freehome(request):
     # posts = Post.objects.all()
     freeposts = FreePost.objects.filter().order_by('-date')
+    paginator = Paginator(freeposts, 2)
+    pagnum  = request.GET.get('page')
+    freeposts = paginator.get_page(pagnum)
     return render(request, 'free_index.html', {'freeposts': freeposts})
 
 
