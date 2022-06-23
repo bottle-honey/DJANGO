@@ -19,4 +19,5 @@ from movieapp import views as movie_app_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', movie_app_views.home),
+    path('detail/<str:movie_id>', movie_app_views.detail , name='detail'),
 ]
